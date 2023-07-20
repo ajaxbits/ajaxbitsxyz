@@ -13,9 +13,9 @@
       pkgs = nixpkgs.legacyPackages.${system};
       lib = pkgs.lib;
     in {
-      packages.website = pkgs.stdenv.mkDerivation {
+      packages.blog = pkgs.stdenv.mkDerivation {
         pname = "ajaxbitsxyz";
-        version = "";
+        version = "0.0.0";
         src = ./.;
         nativeBuildInputs = [pkgs.zola];
         buildPhase = "zola build";
@@ -39,7 +39,9 @@
           ];
         };
       };
-      defaultPackage = self.packages.${system}.website;
+
+      packages.default = self.packages.${system}.blog;
+
       devShell = pkgs.mkShell {
         packages = with pkgs; [
           zola

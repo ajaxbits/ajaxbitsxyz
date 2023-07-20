@@ -1,0 +1,2 @@
+# ajaxbitsxyz
+my personal blog
